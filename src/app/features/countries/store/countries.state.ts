@@ -6,8 +6,10 @@ export interface CountriesState {
   loading: boolean;
   error: string | null;
   searchQuery: string;
-  filterRegion: string;
+  filterRegion: RegionFilter;
 }
+
+export type RegionFilter = '' | 'Africa' | 'Americas' | 'Asia' | 'Europe' | 'Oceania';
 
 export const initialCountriesState: CountriesState = {
   countries: [],
