@@ -10,30 +10,22 @@ import { selectTheme } from '../../theme/store/theme.selectors';
 })
 export class ThemeService {
   private store = inject(Store);
-  theme$: Observable<string>;
+  readonly theme$: Observable<string>;
 
   constructor() {
     this.theme$ = this.store.pipe(
       select(selectTheme),
-      tap(theme => {
-        console.log(`[ThemeService] Applying theme: ${theme}`);
-        document.documentElement.className = theme; // Update class instead of data-theme
+      tap((theme) => {
+        document.documentElement.className = theme;
         try {
           localStorage.setItem('theme', theme);
-          console.log(`[ThemeService] Saved theme to localStorage: ${theme}`);
-        } catch (error) {
-          console.error('[ThemeService] Failed to save theme to localStorage:', error);
-        }
+        } catch {}
       }),
-      catchError(error => {
-        console.error('[ThemeService] Error selecting theme:', error);
-        return of('light'); // Fallback to default theme
-      })
+      catchError(() => of('light'))
     );
   }
 
   toggleTheme(): void {
-    console.log('[ThemeService] Dispatching toggleTheme action');
     this.store.dispatch(toggleTheme());
   }
 
