@@ -1,0 +1,8 @@
+<button (click)="toggleTheme()" class="theme-switcher-button">
+  <ng-container *ngIf="(theme$ | async) === 'light'; else dark">
+    🌙  Dark Mode
+  </ng-container>
+  <ng-template #dark>
+    ☀️  Light Mode
+  </ng-template>
+</button>

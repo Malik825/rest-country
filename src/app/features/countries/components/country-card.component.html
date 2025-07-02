@@ -1,0 +1,19 @@
+<a
+  [routerLink]="['/details', countrySignal()?.cca3]"
+  class="country-card"
+>
+  <img
+    [src]="countrySignal()?.flags?.svg"
+    [alt]="'Flag of ' + countrySignal()?.name?.common"
+    class="w-full h-40 object-cover"
+    loading="lazy"
+  />
+  <div class="info">
+    <h3 class="">{{ countrySignal()?.name?.common }}</h3>
+    <p class="text-sm">
+      <strong>Population:</strong> {{ countrySignal()?.population | number }}<br />
+      <strong>Region:</strong> {{ countrySignal()?.region }}<br />
+      <strong>Capital:</strong> {{ countrySignal()?.capital?.[0] || '—' }}
+    </p>
+  </div>
+</a>

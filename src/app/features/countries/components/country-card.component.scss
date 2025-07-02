@@ -1,0 +1,44 @@
+// import styles
+@use '../../../../styles/_theme.scss';
+.country-card {
+    
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px var(--color-shadow);
+      }
+
+      img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      h3 {
+        margin: 0 0 12px;
+        padding-bottom: 1rem;
+        font-size: 20px;
+        color: var(--text-color);
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      p {
+        margin: 5px 0;
+        font-size: 14px;
+        color: var(--text-color);
+
+        strong {
+          color: var(--text-color);
+          font-weight: 600;
+         &:first-child{}
+          
+        }
+      }
+    }
+  
+  .info{
+    padding: 0 1.2rem;
+  }
