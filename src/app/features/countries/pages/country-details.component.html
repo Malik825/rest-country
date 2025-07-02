@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="details-container">
+  <!-- Back Button -->
+  <button routerLink="/" class="back-button">
+    ← Back
+  </button>
+
+  <!-- Main Grid -->
+  <div class="details-grid">
+    <!-- Flag -->
+    <img
+      class="country-flag"
+      [src]="countrySignal()?.flags?.svg"
+      [alt]="'Flag of ' + countrySignal()?.name?.common"
+      *ngIf="countrySignal()?.flags?.svg"
+    />
+
+    <!-- Info -->
+    <div class="country-info">
+      <h2>{{ countrySignal()?.name?.common }}</h2>
+
+      <div class="info-columns">
+        <div class="info-group">
+          <p><strong>Native Name:</strong> {{ nativeName() }}</p>
+          <p><strong>Population:</strong> {{ countrySignal()?.population | number }}</p>
+          <p><strong>Region:</strong> {{ countrySignal()?.region }}</p>
+          <p><strong>Sub Region:</strong> {{ countrySignal()?.subregion }}</p>
+          <p><strong>Capital:</strong> {{ countrySignal()?.capital?.[0] }}</p>
+        </div>
+
+        <div class="info-group">
+          <p><strong>Top Level Domain:</strong> {{ countrySignal()?.tld?.[0] }}</p>
+          <p><strong>Currencies:</strong> {{ currencyList() }}</p>
+          <p><strong>Languages:</strong> {{ languageList() }}</p>
+        </div>
+      </div>
+
+      <!-- Border Countries -->
+     <div class="borders" *ngIf="countrySignal()?.borders?.length">
+  <h3>Border Countries:</h3>
+  <div class="border-list">
+    <a
+      *ngFor="let border of countrySignal()?.borders"
+      [routerLink]="['/details', border]"
+      class="border-pill"
+    >
+      {{ getCountryName(border) }}
+    </a>
+  </div>
+</div>
+
+    </div>
+  </div>
+</div>
+
+</div>

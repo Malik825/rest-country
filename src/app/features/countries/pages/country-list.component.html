@@ -1,0 +1,37 @@
+<section class="country-list container" role="region" aria-label="Country List">
+  <div class="controls">
+    <input
+      [formControl]="searchControl"
+      type="text"
+      placeholder="Search for a country..."
+      aria-label="Search countries"
+      class="search-input"
+    />
+    <select
+      [formControl]="regionControl"
+      aria-label="Filter by region"
+      class="region-select"
+    >
+      <option value="">Filter by Region</option>
+      <option value="Africa">Africa</option>
+      <option value="Americas">Americas</option>
+      <option value="Asia">Asia</option>
+      <option value="Europe">Europe</option>
+      <option value="Oceania">Oceania</option>
+    </select>
+  </div>
+
+  <!-- Loading Indicator -->
+  <div *ngIf="loading()" class="loading" role="status" aria-live="polite">
+    Loading countries...
+  </div>
+
+  <!-- Countries List -->
+  <div class="countries-grid" role="list">
+    <app-country-card
+      *ngFor="let country of filteredCountries()"
+      [country]="country"
+      role="listitem" class="country-card "
+    ></app-country-card>
+  </div>
+</section>

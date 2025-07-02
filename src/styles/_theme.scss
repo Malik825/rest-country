@@ -1,0 +1,38 @@
+:root {
+  --font-family: 'Poppins', sans-serif;
+
+  --color-white: #ffffff;
+  --color-dark-blue: #2b3945;
+  --color-very-dark-blue: #202c37;
+  --color-light-gray: #f3f3f3;
+  --color-text-dark: #111517;
+  --color-text-light: #ffffff;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --border-color: #e2e8f0;
+}
+
+// Light Theme
+:root.light {
+  --bg-color: var(--color-light-gray);
+  --text-color: var(--color-text-dark);
+  --element-bg: var(--color-white);
+  --input-bg: var(--color-white);
+  --border-color: #cbd5e1;
+}
+
+// Dark Theme
+:root.dark {
+  --bg-color: var(--color-very-dark-blue);
+  --text-color: var(--color-text-light);
+  --element-bg: var(--color-dark-blue);
+  --input-bg: var(--color-dark-blue);
+  --border-color: #475569;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+}
